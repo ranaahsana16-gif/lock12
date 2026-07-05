@@ -181,14 +181,14 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
       {/* HEADER */}
       <header className="fixed top-0 z-50 w-full">
-        <div className="glass-card mx-auto mt-4 flex max-w-6xl items-center justify-between rounded-2xl px-5 py-3 sm:px-6">
+        <div className="glass-card mx-auto mt-2 sm:mt-4 flex max-w-6xl items-center justify-between rounded-2xl px-3.5 py-2 sm:px-6 sm:py-3">
           <a 
             href="#top" 
             onClick={(e) => { e.preventDefault(); navigateTo('home'); }} 
-            className="flex items-center gap-2 no-underline text-foreground"
+            className="flex items-center gap-2 no-underline text-foreground shrink-0"
           >
-            <KeyRound className="h-6 w-6 text-[var(--sky)] shrink-0" />
-            <span className="font-display text-lg font-semibold tracking-tight">Perfect Locksmiths</span>
+            <KeyRound className="h-5 w-5 sm:h-6 sm:w-6 text-[var(--sky)] shrink-0" />
+            <span className="font-display text-sm sm:text-base md:text-lg font-semibold tracking-tight whitespace-nowrap">Perfect Locksmiths</span>
           </a>
           
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
@@ -402,14 +402,14 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground animate-fade-up delay-200">
               Perfect Locksmiths delivers fast, honest, and expertly crafted locksmith service for homes and businesses — from emergency lockouts to complete security solutions.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3 animate-fade-up delay-300">
-              <a href={phoneLink} className="inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant transition-all hover:-translate-y-0.5 no-underline">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 animate-fade-up delay-300">
+              <a href={phoneLink} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--sky)] px-6 py-3.5 text-sm font-semibold text-white shadow-elegant transition-all hover:bg-[var(--navy)] hover:-translate-y-0.5 no-underline">
                 <Phone className="h-4 w-4" /> Call {phoneNumber}
               </a>
               <a 
                 href="#services" 
                 onClick={(e) => { e.preventDefault(); const el = document.getElementById('services-sec'); el.scrollIntoView({ behavior: 'smooth' }); }} 
-                className="inline-flex items-center gap-2 rounded-xl border border-[var(--sky)]/30 bg-white px-6 py-3.5 text-sm font-semibold text-[var(--navy)] shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 no-underline"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--sky)]/30 bg-white px-6 py-3.5 text-sm font-semibold text-[var(--navy)] shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 no-underline"
               >
                 Explore Services <ArrowRight className="h-4 w-4" />
               </a>
