@@ -2,11 +2,6 @@
 @import "./lovable.css";
 
 @theme {
-  --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-fade-in: fade-in 0.4s ease-out both;
-  --animate-scale-in: scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-  --animate-pulse-subtle: pulse-subtle 2s infinite ease-in-out;
-  
   @keyframes fade-up {
     from {
       opacity: 0;
@@ -47,39 +42,50 @@
   }
 }
 
+/* Explicit CSS Animation classes (100% reliable) */
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-scale-in {
+  animation: scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out both;
+}
+
 /* Custom animation delay utilities */
 .delay-100 {
-  animation-delay: 100ms;
+  animation-delay: 100ms !important;
 }
 .delay-200 {
-  animation-delay: 200ms;
+  animation-delay: 200ms !important;
 }
 .delay-300 {
-  animation-delay: 300ms;
+  animation-delay: 300ms !important;
 }
 .delay-400 {
-  animation-delay: 400ms;
+  animation-delay: 400ms !important;
 }
 .delay-500 {
-  animation-delay: 500ms;
+  animation-delay: 500ms !important;
 }
 
 /* Premium Card hover states */
 .premium-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .premium-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.12);
-  border-color: var(--sky);
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.12) !important;
+  border-color: var(--sky) !important;
 }
 
 /* Interactive icon rotate on card hover */
 .card-icon-container {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .premium-hover:hover .card-icon-container {
-  transform: scale(1.1) rotate(12deg);
-  background-color: var(--sky);
-  color: white;
+  transform: scale(1.1) rotate(12deg) !important;
+  background-color: var(--sky) !important;
+  color: white !important;
 }

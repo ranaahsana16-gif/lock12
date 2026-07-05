@@ -29,11 +29,11 @@ import {
   CheckCircle
 } from 'lucide-react';
 
-const heroImage = "/assets/hero-locksmith-DoNveL5X.jpg";
-const keysImage = "/assets/keys-C6EK-ING.jpg";
-const residentialImage = "/assets/residential-C0MRIgLs.jpg";
-const commercialImage = "/assets/commercial-CHsIWrJn.jpg";
-const keycuttingImage = "/assets/keycutting-wtGqknNQ.jpg";
+const heroImage = `${import.meta.env.BASE_URL}assets/hero-locksmith-DoNveL5X.jpg`;
+const keysImage = `${import.meta.env.BASE_URL}assets/keys-C6EK-ING.jpg`;
+const residentialImage = `${import.meta.env.BASE_URL}assets/residential-C0MRIgLs.jpg`;
+const commercialImage = `${import.meta.env.BASE_URL}assets/commercial-CHsIWrJn.jpg`;
+const keycuttingImage = `${import.meta.env.BASE_URL}assets/keycutting-wtGqknNQ.jpg`;
 
 const phoneNumber = "+1 (514) 279-5625";
 const phoneLink = "tel:+15142795625";
