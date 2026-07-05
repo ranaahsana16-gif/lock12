@@ -391,18 +391,18 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
         <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[var(--navy-soft)] opacity-10 blur-3xl" />
         
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          <div className="animate-count">
+          <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/60 px-3 py-1.5 text-xs font-medium text-[var(--navy)] backdrop-blur">
               <Sparkles className="h-3.5 w-3.5" />
               Trusted local locksmith • 5.0 ★ on Google
             </div>
-            <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl font-display">
+            <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl font-display animate-fade-up delay-100">
               Security you can <span className="gradient-text">trust</span>,<br className="hidden sm:block" /> service you can rely on.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground animate-fade-up delay-200">
               Perfect Locksmiths delivers fast, honest, and expertly crafted locksmith service for homes and businesses — from emergency lockouts to complete security solutions.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3 animate-fade-up delay-300">
               <a href={phoneLink} className="inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-elegant transition-all hover:-translate-y-0.5 no-underline">
                 <Phone className="h-4 w-4" /> Call {phoneNumber}
               </a>
@@ -414,7 +414,7 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
                 Explore Services <ArrowRight className="h-4 w-4" />
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground animate-fade-up delay-400">
               <div className="flex items-center gap-2">
                 <CircleCheck className="h-4 w-4 text-[var(--sky)]" /> Licensed &amp; Insured
               </div>
@@ -427,7 +427,7 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative animate-scale-in">
             <div className="absolute -inset-4 rounded-[2rem] bg-[var(--gradient-primary)] opacity-10 blur-2xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-white/60 shadow-elegant">
               <img src={heroImage} alt="Professional locksmith installing a premium lock" width="1600" height="1200" className="h-full w-full object-cover" />
@@ -456,9 +456,9 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
 
       {/* STATS SECTION */}
       <section className="mx-auto -mt-16 max-w-6xl px-6 relative z-10">
-        <div className="glass-card grid grid-cols-2 gap-6 rounded-3xl p-8 sm:grid-cols-4 sm:gap-4">
+        <div className="glass-card grid grid-cols-2 gap-6 rounded-3xl p-8 sm:grid-cols-4 sm:gap-4 shadow-elegant animate-scale-in delay-100">
           {stats.map((item, idx) => (
-            <div key={item.label} className="text-center animate-count" style={{ animationDelay: `${idx * 100}ms` }}>
+            <div key={item.label} className="text-center animate-fade-up" style={{ animationDelay: `${idx * 150}ms` }}>
               <div className="font-display text-4xl font-semibold tracking-tight text-[var(--navy)] sm:text-5xl">
                 {item.value}
                 <span className="text-[var(--sky)]">{item.suffix ?? ''}</span>
@@ -477,11 +477,11 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
           <p className="mt-4 text-muted-foreground">Every job is done with precision, care, and complete honesty — the way locksmith service should be.</p>
         </div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {whyUs.map((item) => {
+          {whyUs.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="group relative rounded-2xl border border-border bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant">
-                <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-[var(--sky-soft)] text-[var(--navy)] transition-colors group-hover:bg-[var(--gradient-primary)] group-hover:text-primary-foreground">
+              <div key={item.title} className="group relative rounded-2xl border border-border bg-card p-7 shadow-soft premium-hover animate-fade-up" style={{ animationDelay: `${(idx + 1) * 150}ms` }}>
+                <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-[var(--sky-soft)] text-[var(--navy)] card-icon-container">
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -502,20 +502,22 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
             <p className="mt-4 text-muted-foreground">From emergency lockouts to full commercial security systems — one trusted team, all the expertise you need.</p>
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.slice(0, 3).map((item) => {
+            {services.slice(0, 3).map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-[var(--sky)] hover:shadow-elegant">
+                <div key={item.title} className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-soft premium-hover animate-fade-up" style={{ animationDelay: `${(idx + 1) * 150}ms` }}>
                   <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-[var(--sky-soft)] opacity-0 blur-2xl transition-opacity group-hover:opacity-80" />
-                  <div className="relative">
-                    <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[var(--sky-soft)] text-[var(--navy)] transition-all group-hover:scale-110">
-                      <Icon className="h-5 w-5" />
+                  <div className="relative flex flex-col h-full justify-between">
+                    <div>
+                      <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-[var(--sky-soft)] text-[var(--navy)] card-icon-container">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-base font-semibold">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                     </div>
-                    <h3 className="text-base font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                     <button 
                       onClick={() => handleBookService(item.title)} 
-                      className="mt-5 text-xs font-bold text-white bg-[var(--sky)] px-4 py-2 rounded-xl shadow-soft cursor-pointer inline-flex items-center gap-1.5 transition-all hover:bg-[var(--navy)] hover:shadow-md border-0"
+                      className="mt-5 text-xs font-bold text-white bg-[var(--sky)] px-4 py-2 rounded-xl shadow-soft cursor-pointer inline-flex items-center gap-1.5 transition-all hover:bg-[var(--navy)] hover:shadow-md border-0 w-fit"
                     >
                       Book service <ArrowRight className="h-3.5 w-3.5" />
                     </button>
@@ -543,7 +545,7 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Precision work, thoughtfully delivered</h2>
         </div>
         <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div className="group relative overflow-hidden rounded-2xl border border-border shadow-soft">
+          <div className="group relative overflow-hidden rounded-2xl border border-border shadow-soft animate-fade-up" style={{ animationDelay: '150ms' }}>
             <img src={residentialImage} alt="Residential Security" loading="lazy" width="1200" height="900" className="aspect-[4/5] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-primary-foreground">
@@ -551,7 +553,7 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
               <div className="text-sm font-semibold">Residential Security</div>
             </div>
           </div>
-          <div className="group relative overflow-hidden rounded-2xl border border-border shadow-soft">
+          <div className="group relative overflow-hidden rounded-2xl border border-border shadow-soft animate-fade-up" style={{ animationDelay: '300ms' }}>
             <img src={commercialImage} alt="Commercial Access" loading="lazy" width="1200" height="900" className="aspect-[4/5] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-primary-foreground">
@@ -559,7 +561,7 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
               <div className="text-sm font-semibold">Commercial Access</div>
             </div>
           </div>
-          <div className="group relative overflow-hidden rounded-2xl border border-border shadow-soft">
+          <div className="group relative overflow-hidden rounded-2xl border border-border shadow-soft animate-fade-up" style={{ animationDelay: '450ms' }}>
             <img src={keycuttingImage} alt="Precision Key Cutting" loading="lazy" width="1200" height="900" className="aspect-[4/5] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-primary-foreground">
@@ -567,7 +569,7 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
               <div className="text-sm font-semibold">Precision Key Cutting</div>
             </div>
           </div>
-          <div className="group relative overflow-hidden rounded-2xl border border-border shadow-soft">
+          <div className="group relative overflow-hidden rounded-2xl border border-border shadow-soft animate-fade-up" style={{ animationDelay: '600ms' }}>
             <img src={keysImage} alt="Modern Locking Systems" loading="lazy" width="1200" height="900" className="aspect-[4/5] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-primary-foreground">
@@ -596,8 +598,8 @@ function HomeView({ handleBookService, reviewsList, navigateTo, contactForm, set
             <p className="max-w-2xl text-muted-foreground">Real feedback from people we've helped — from midnight lockouts to full office rekeys.</p>
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reviewsList.slice(0, 3).map((item) => (
-              <figure key={item.name} className="glass-card flex h-full flex-col rounded-2xl p-7">
+            {reviewsList.slice(0, 3).map((item, idx) => (
+              <figure key={item.name} className="glass-card flex h-full flex-col rounded-2xl p-7 premium-hover animate-fade-up" style={{ animationDelay: `${(idx + 1) * 150}ms` }}>
                 <div className="flex items-center gap-1">
                   {[...Array(item.rating)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-[var(--gold)] text-[var(--gold)]" />
